@@ -1,1 +1,200 @@
-[]
+[
+    {
+        "id": "ba939d69.9b294",
+        "type": "tab",
+        "label": "dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d6237f20.585b3",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "enriquecrespo.com",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f60d4690.7f8558",
+        "type": "ui_group",
+        "name": "Consumo",
+        "tab": "d45f6dd0.d00da",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d1be0de9.1f684",
+        "type": "ui_group",
+        "name": "Estadistica",
+        "tab": "d45f6dd0.d00da",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "28bbf643.f771ba",
+        "type": "ui_group",
+        "name": "Voltaje",
+        "tab": "d45f6dd0.d00da",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d45f6dd0.d00da",
+        "type": "ui_tab",
+        "name": "Casa",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "320e9941.1b6846",
+        "type": "mqtt in",
+        "z": "ba939d69.9b294",
+        "name": "intensidad",
+        "topic": "aprendiendonodered21/enrique/wibeee/irms1",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "d6237f20.585b3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "d8f20984.b5e598",
+                "e12fb89d.103368"
+            ]
+        ]
+    },
+    {
+        "id": "d8f20984.b5e598",
+        "type": "ui_gauge",
+        "z": "ba939d69.9b294",
+        "name": "",
+        "group": "f60d4690.7f8558",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "Amperios",
+        "format": "{{value | number:1}}%",
+        "min": 0,
+        "max": "4.5",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "2",
+        "seg2": "3",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "77a5573b.3bc008",
+        "type": "mqtt in",
+        "z": "ba939d69.9b294",
+        "name": "voltaje",
+        "topic": "aprendiendonodered21/enrique/wibeee/vrms1",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "d6237f20.585b3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "88d7263d.322e98"
+            ]
+        ]
+    },
+    {
+        "id": "e12fb89d.103368",
+        "type": "ui_chart",
+        "z": "ba939d69.9b294",
+        "name": "",
+        "group": "d1be0de9.1f684",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 450,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "88d7263d.322e98",
+        "type": "ui_text",
+        "z": "ba939d69.9b294",
+        "group": "28bbf643.f771ba",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Tension",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 390,
+        "y": 220,
+        "wires": []
+    }
+]
